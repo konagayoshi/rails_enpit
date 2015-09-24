@@ -1,9 +1,6 @@
 language: ruby
 rvm:
 - 2.2.2
-- 1.9.3
-- jruby-19mode
-- rbx-2
 deploy:
   provider: heroku
   api_key:
@@ -11,7 +8,7 @@ deploy:
   app: lit-lake-6213
   on:
     repo: konagayoshi/rails_enpit
-    branch: books
+    branch: master
 addons:
     postgresql: "9.3"
 before_script:
