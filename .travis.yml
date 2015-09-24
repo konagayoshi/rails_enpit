@@ -1,0 +1,19 @@
+language: ruby
+rvm:
+- 2.2.2
+- 1.9.3
+- jruby-19mode
+- rbx-2
+deploy:
+  provider: heroku
+  api_key:
+    secure: UbtCM2HwVNS8mSwWw1OieGAbGQIkpKYqF6DtD8N16W81LeaFtWCMlLBzN9+rjy7F1i08H1ZhXbbxbxy48GzqeemVJIqMThFouvYKENyR3Sj+UWdbMIBW4pucZzbpB1fogrpYJfJLnzy170bzSEv0DgtHNKw+ZZwDh8GzqyZEPGdzYTgfJSLpq+I4DjKZmFG7HTbnFarom02zwL/Zl/9rwazZMBCck333s69naNd6D0ExhJqjzRiOLWj1qierLbjaSuQurXjbGRuUw9OLh8v22S4bx5iMpbeWX2MPp38rgh+33DqKU1r6dLjCF1zIYe953HjElYD7TjcQn9apCP8QBhqivhwL3IXuAMdz9WemOEteHJ9Z84Z817fcoguaAXescKCBGRu071fb1RMiTnNz/rLo7Qk0Vjaxbz4jdW10M4przOfDJ0VUtLMg/ZwA/7RUOHCnIwSZIEj72zjgsaBzhPvfAcl7lrQ2ERdg+Ebj4wNogDpmEAJa6TEdbT0X9brWkcgvhDUh4S6Dlyg5/LZ7jo8HCGW9cadT4yXCxFVnK8dT2Gz2UOUMik/xr42o+z1caAGwqvDDhVbMJkdMUFa4zZOuaNGhcTW5YuWMHRC0jt9kz28s5diiP5yPUw1n/1pCGDyBvLwyWPEKW9oAqynboF4MUoQ4gz4oEd6sL6bvxS0=
+  app: lit-lake-6213
+  on:
+    repo: konagayoshi/rails_enpit
+    branch: fixure
+addons:
+    postgresql: "9.3"
+before_script:
+    - psql -c 'create database travis_ci_test;' -U postgres
+    - cp config/database.yml.travis config/database.yml
